@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
     // Throw an error if query parameters arent included in the GET request
     if (!slack_name || !track) {
-        return res.status(400).json({ error: 'Both slack_name and track parameters are required.' });
+        return res.status(400).json({ error: 'Both "slack_name" and "track" parameters are required.' });
     }
 
     // Calculate the day of the week
