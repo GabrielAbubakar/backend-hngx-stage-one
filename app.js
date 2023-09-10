@@ -25,7 +25,7 @@ app.get('/api', (req, res) => {
     const jsonResponse = {
         "slack_name": slack_name,
         "current_day": week[day],
-        "utc_time": new Date().toISOString().split('.')[0] + 'Z',
+        "utc_time": new Date().toISOString().slice(0, 19) + 'Z',
         "track": track,
         "github_file_url": "https://github.com/GabrielAbubakar/backend-hngx-stage-one/blob/master/app.js",
         "github_repo_url": "https://github.com/GabrielAbubakar/backend-hngx-stage-one",
