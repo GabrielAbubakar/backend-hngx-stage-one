@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 
 
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     // Set the information included in query parameters as variables
     const slack_name = req.query.slack_name;
     const track = req.query.track;
@@ -22,10 +22,10 @@ app.get('/', (req, res) => {
     var day = dt.getDay()
 
     // Create the response object
-    const jsonResponse2 = {
+    const jsonResponse = {
         "slack_name": slack_name,
         "current_day": week[day],
-        "utc_time": new Date().toISOString(),
+        "utc_time": new Date().toISOString().split('.')[0] + 'Z',
         "track": track,
         "github_file_url": "https://github.com/GabrielAbubakar/backend-hngx-stage-one/blob/master/app.js",
         "github_repo_url": "https://github.com/GabrielAbubakar/backend-hngx-stage-one",
@@ -33,7 +33,7 @@ app.get('/', (req, res) => {
     }
 
 
-    res.send(jsonResponse2)
+    res.send(jsonResponse)
 })
 
 app.listen(port, () => {
